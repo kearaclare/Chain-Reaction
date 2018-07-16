@@ -1,0 +1,448 @@
+﻿body
+{
+    font-family: Verdana;
+    font-size: 11px;
+    color: black;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --------------------------- Links ------------------------------- */
+a
+{
+    font-family: Verdana;
+    font-size: 11px;
+    color: black;
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: underline;
+}
+td a
+{
+    color: blue;
+}
+
+/* --------------------------- Image ------------------------------- */
+img
+{
+    vertical-align: middle;
+}
+img.linkImage
+{
+    cursor: hand;
+    vertical-align: top;
+}
+/* --------------------------- Table ------------------------------- */
+th, td
+{
+    padding: 0 5px 0 5px;
+}
+div.tree td
+{
+    padding: 2px 0 2px 0;
+}
+/* --------------------------- Input ------------------------------- */
+input
+{
+    font-size: 11px;
+    font-family: Verdana;
+    font-weight: normal;
+}
+input[type="submit"]
+{
+}
+input[type="text"]:focus
+{
+    background-color: #FFFF99;
+}
+select:focus
+{
+    background-color: #FFFF99;
+}
+
+/* --------------------------- List ------------------------------- */
+.listBox
+{
+    font-family: Verdana;
+    font-size: 11px;
+    color: black;
+}
+/* --------------------------- TopControl ------------------------------- */
+#TopControl
+{
+    height: 84px;
+}
+.topImage
+{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#ProfileField
+{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    text-align: right;
+}
+#LanguageOption
+{
+    margin-top: 10px;
+    white-space: nowrap;
+}
+
+/* --------------------------- LeftPanel ------------------------------- */
+#LeftPanel
+{
+    position: absolute;
+    left: 0;
+    top: 84px;
+    width: 188px;
+    background-color: #efefef;
+    border-right: solid 1px Gray;
+}
+#LeftPanelHeader
+{
+    font-weight: bold;
+    padding: 6px 2px 6px 2px;
+}
+#LeftMenu
+{
+    position: absolute;
+    left: 0;
+    top: 27px;
+    width: 175px;
+    padding: 5px 0 5px 10px;
+    background-color: White;
+    border: solid 1px Gray;
+    border-left-style: none;
+    overflow: auto;
+}
+
+/* --------------------------- RightPanel ------------------------------- */
+#RightPanel
+{
+    position: absolute;
+    left: 188px;
+    top: 84px;
+    padding: 10px;
+    width: 790px;
+}
+#PrintPanel
+{
+    width: 790px;
+    text-align: left;
+}
+#PrintPanelHeader
+{
+    position: relative;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    width: 100%;
+}
+#PrintPanelHeader img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* --------------------------- Page ------------------------------- */
+#PageTitle
+{
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* --------------------------- WebControls -------------------------- */
+.infoItem
+{
+    float: left;
+    line-height: 20px;
+}
+.infoItem .label
+{
+    float: left;
+    height: 20px;
+    color: Gray;
+}
+.infoItem .field
+{
+    height: 20px;
+    clear: both;
+}
+.infoItem .field>img
+{
+    margin-left: 10px;
+}
+.numeric
+{
+    text-align: right;
+}
+.operation
+{
+    float: right;
+}
+
+.contentHolder
+{
+    border-collapse: collapse;
+    border: #E1E1E1 1px solid;
+    width: 100%;
+}
+.contentHolderHeader
+{
+    background-color: #efefef;
+    font-weight: bold;
+    height: 16px;
+    border-bottom: #E1E1E1 1px solid;
+    padding-left: 10px;
+}
+.contentHolderContent
+{
+    margin: 5px 10px 5px 10px;
+}
+.print
+{
+    margin-left: 20px;
+    padding-left: 20px;
+    line-height: 18px;
+    font-weight: normal;
+    display: inline-block;
+    color: Blue;
+    background-image: url('Print.gif');
+    background-repeat: no-repeat;
+    background-position: left;
+}
+.nameValueView
+{
+    text-align: center;
+}
+.nameValueItem
+{
+    float: left;
+    width: 75px;
+    margin: 5px 0 0 -1px;
+    border: #E1E1E1 1px solid;
+}
+.nameValueItemWide
+{
+    float: left;
+    width: 127px;
+    margin: 5px 0 0 -1px;
+    border: #E1E1E1 1px solid;
+}
+.nameValueItemName
+{
+    background-color: #efefef;
+    border-bottom: #E1E1E1 1px solid;
+    height: 16px;
+    padding: 2px;
+}
+
+.nameValueItemWide .nameValueItemName
+{
+    height: 30px;
+}
+.nameValueItemValue
+{
+    height: 16px;
+    padding: 2px;
+}
+.errorMessage
+{
+    color: Red;
+}
+
+/* ----------------------- DataPager --------------------------- */
+.dataPager
+{
+    font-size: 11px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    margin-bottom: 2px;
+    vertical-align: top;
+    border-bottom: #616e79 1px solid;
+    font-family: Verdana;
+    background-color: #ffffff;
+    text-align: left;
+    text-decoration: none;
+}
+.dataPager span
+{
+    font-weight: bold;
+}
+.dataPager a
+{
+    font-family: Verdana;
+    font-size: 11px;
+    color: #0060C0;
+    text-decoration: none;
+}
+.dataPager a:hover
+{
+    text-decoration: underline;
+}
+
+/* ----------------------- EmployeePicker --------------------------- */
+.employeePickerSearchPanel
+{
+    left: -65534px;
+    border: 2px outset white;
+    background-color: ButtonFace;
+    width: 280px;
+}
+.employeePickerFilter
+{
+    padding: 10px;
+}
+.employeePickerResult
+{
+    padding: 0px 0px 10px 10px;
+}
+
+/* --------------------------- Banner ------------------------------- */
+#BannerLogo
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 0;
+}
+#BannerLogoText
+{
+    font-family: arial;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 1px;
+    width: 400px;
+    height: auto;
+    position: absolute;
+    top: 11px;
+    left: 255px;
+    z-index: 0;
+}
+#BannerLogoSecondaryText
+{
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bolder;
+    color: black;
+    width: 400px;
+    height: auto;
+    position: absolute;
+    top: 35px;
+    left: 255px;
+    z-index: 0;
+}
+#BannerLinks
+{
+    position: absolute;
+    float: left;
+    top: 58px;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 27px;
+    background-image: url(bannerlinksBG.gif);
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+}
+#BannerLinks ul
+{
+    height: 27px;
+    background-image: url(bannerlinksBG.gif);
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+#BannerLinks ul li
+{
+    display: inline;
+}
+#BannerLinks ul li a
+{
+    padding-left: 1.0em;
+    padding-top: 0.5em;
+    padding-right: 1.0em;
+    margin: 0;
+    display: inline;
+    float: left;
+    color: black;
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+}
+#BannerLinks ul li a:hover
+{
+    background-image: url(bannerlinkshoverBG.gif);
+    height: 21px;
+}
+#BannerLinks ul li span
+{
+    width: 1px;
+    height: 18px;
+    background-color: #b2b2b2;
+    margin-top: 0.25em;
+}
+
+.bannerLinkActive:hover
+{
+    background-image: url(bannerlinkshoverBG.gif);
+    height: 21px;
+    display: inline;
+}
+.bannerLinkActive
+{
+    background-image: url(bannerlinkshoverBG.gif);
+    height: 21px;
+    display: inline;
+}
+
+
+
+.TopBanner1024Width
+{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+/* --------------------------- Utility ------------------------------- */
+.clear
+{
+    clear: both;
+    height: 0;
+}
+
+/* --------------------------- Hack ------------------------------- */
+.selectFree
+{
+	position:relative;
+	z-index:10;/*any value*/
+	overflow:hidden;/*must have*/
+	width:300px;/*must have for any value*/
+}
+
+.selectFree iframe
+{
+ display:none;/*sorry for IE5*/ 
+ display/**/:block;/*sorry for IE5*/
+ position:absolute;/*must have*/
+ top:0;/*must have*/
+ left:0;/*must have*/
+ z-index:-1;/*must have*/
+ filter:mask();/*must have*/
+ width:2000px;/*must have for any big value*/
+ height:3000px/*must have for any big value*/;
+}

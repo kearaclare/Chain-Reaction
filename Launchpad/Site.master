@@ -1,0 +1,222 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Assembly="BotDetect" namespace="BotDetect.Web.UI" tagPrefix="BotDetect" %>
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <style type="text/css">
+        .ModalPopupBG {
+            background-color: #808080;
+            filter: alpha(opacity=50);
+            opacity: 0.7;
+        }
+
+        .feedback {
+            min-width: 200px;
+            min-height: 150px;
+            background: white;
+        }
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a runat="server" href="~/">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/App_Themes/Default/cr_logo.png" Height="50px" Class="nav-items" />
+                    </a>
+
+                    <%--<a class="navbar-brand" runat="server" href="~/">Application name</a>--%>
+                    <asp:Hyperlink ID="lblSiteTitle" runat="server" meta:resourceKey="lblSiteTitle" ForeColor="Aqua" Font-Underline="False" Font-Bold="True" Font-Names="Arial" NavigateUrl="~/" />
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav nav-items">
+<%--                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/About">About Us</a></li>
+                        <li><a runat="server" href="~/Contact">Blockchain</a></li>
+                        <li><a runat="server" href="~/">Uses</a></li>
+                        <li><a runat="server" href="~/About">Glossary</a></li>
+                        <li><a runat="server" href="~/More">More</a></li>--%>
+                        <li><asp:HyperLink ID="A1" runat="server" NavigateUrl="~/" meta:resourceKey="hlHome"></asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/About" meta:resourceKey="hlBlockchain"></asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/About" meta:resourceKey="hlUseCases"></asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/About" meta:resourceKey="hlCompanies"></asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/About" meta:resourceKey="hlGlossary"></asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/About" meta:resourceKey="hlQuestions"></asp:HyperLink></li>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right nav-items">
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                        <li>
+                            <asp:LinkButton ID="lbEnglish" runat="server" CommandArgument="en-US" OnClick="lbEnglish_Click" OnLoad="lbEnglish_Load" ForeColor="#FFFFCC" >English</asp:LinkButton></li>
+                        <li>
+                            <asp:LinkButton ID="lbChinese" runat="server" CommandArgument="zh-CN" OnClick="lbChinese_Click" OnLoad="lbChinese_Load" ForeColor="#FFFFCC" >中文</asp:LinkButton></li>
+<%--                        <li>
+                            <asp:LinkButton ID="lbJapanese" runat="server" CommandArgument="ja-JP" OnClick="lbJapanese_Click" OnLoad="lbJapanese_Load" ForeColor="#FFFFCC" >日本語</asp:LinkButton></li>--%>
+                    </ul>
+
+                       <asp:LinkButton ID="ContactPO" runat="server" class="cuNavButton hideMe" meta:resourceKey="lbContactUs"><link href="bootstrap.css" type="text/css" /></asp:LinkButton>
+                   
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right nav-items">
+                             <%--   <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>--%>
+                                <li>
+                                    <asp:HyperLink ID="hlRegister" runat="server" NavigateUrl="~/Account/Register" Visible="True">Register</asp:HyperLink>
+                                </li>
+                                <li><asp:HyperLink ID="hlLogin" runat="server" NavigateUrl="~/Account/Login" Visible="True">Log in</asp:HyperLink></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                            </ul>
+                        </AnonymousTemplate>
+
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+
+                 <%--   <asp:LinkButton ID="ContactPO" runat="server" class="cuNavButton hideMe"><link href="bootstrap.css" type="text/css" /> Contact Us! </asp:LinkButton>--%>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container body-content">
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <%--*******************Everything inside contact us . aspx********************--%>
+
+               
+            </asp:ContentPlaceHolder>
+            <hr />
+         
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+
+
+
+ <ajaxToolkit:ModalPopupExtender id="ModalPopupExtender1" runat="server"
+        okcontrolid="cu_btnOkay"
+        targetcontrolid="ContactPO" popupcontrolid="ContactPanel"
+        popupdraghandlecontrolid="cu_PopupHeader" drag="true"
+        backgroundcssclass="ModalPopupBG" dropshadow="True">
+    </ajaxToolkit:ModalPopupExtender>
+
+    <asp:Panel ID="ContactPanel" Style="display: block" runat="server" Width="400px" BorderColor="#36CDC8" BorderStyle="Solid" HorizontalAlign="Left" BorderWidth="4px">
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+        <div class="feedback">
+            <div class="CloseModalPO" id="cu_Close" style="margin: auto; padding: 4px; vertical-align: middle; text-align: right; font-size: medium;">
+                <asp:LinkButton ID="cu_btnClose" runat="server" OnClick="CUbtnCancel_Click" CausesValidation="false" ViewStateMode="Inherit" Class="contact_close_button"> X </asp:LinkButton>
+            </div>
+
+            <div class="PopupHeader" id="cu_PopupHeader" style="margin: auto; padding: 5px; vertical-align: middle; text-align: center; font-size: x-large;">Contact Us!</div>
+            <div class="PopupBody" style="vertical-align: middle; padding-top: 10px; padding-bottom: 10px; padding-left: 10%;">
+                <table id="Table1" border="0" style="width: 100%; vertical-align: middle">
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label1" runat="server" Text="Name:"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="cu_txtName" runat="server" Width="270px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label2" runat="server" Text="Email:"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="cu_txtEmail" runat="server" Width="270px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label3" runat="server" Text="Message:"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="cu_txtMessage" runat="server" Height="100px" Width="400px" Wrap="True" TextMode="MultiLine"></asp:TextBox>
+                            <br />
+                            <br />
+                            <BotDetect:WebFormsCaptcha ID="cu_captchaBox" runat="server" Visible="True"></BotDetect:WebFormsCaptcha>
+                            <br />
+                            <asp:Label ID="cu_Captchalbl" runat="server" Text="Enter Captcha:" Visible="True"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="cu_txtCaptcha" runat="server" Visible="True"></asp:TextBox>
+
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <br />
+            <div class="Controls" style="margin:auto; padding-bottom: 50px; vertical-align: middle; text-align: center">
+                <asp:Label ID="cu_lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
+
+                <br />
+                <asp:Button ID="cu_btnOkay" runat="server" Text="Submit" UseSubmitBehavior="false" OnClick="btnContact_Click" Font-Size="Large" Height="40" Width="120"  />
+                 <asp:LinkButton ID="Close_btn" runat="server" OnClick="CUbtnCancel_Click" causesvalidation="false" ViewStateMode="Inherit" Font-Size="medium">Close</asp:LinkButton>
+
+            </div>
+        </div>
+                   </ContentTemplate>
+             <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="cu_btnOkay" />
+                 <asp:AsyncPostBackTrigger ControlID="Close_btn" />
+                 <asp:AsyncPostBackTrigger ControlID="cu_btnClose" />
+                </Triggers>
+    </asp:UpdatePanel>
+    </asp:Panel>
+
+
+    </form>
+</body>
+</html>
